@@ -5,8 +5,10 @@ Implements support of RESTful resources with Rails MVC when Javascript is off an
 h2. Rack Builder
 
 <pre>
+<code>
 require 'rack-restful_submit'
 use Rack::RestfulSubmit
+</code>
 </pre>
 
 h2. Rails integration
@@ -15,31 +17,41 @@ h3. Install GEM without Bundler
 
 Insert into config/environment.rb:
 <pre>
+<code>
   config.gem "rack-restful_submit"
+</code>
 </pre>
 
 Run:
 <pre>
+<code>
   rake gems:install
+</code>
 </pre>
 
 h3. Install GEM with Bundler
 
 Insert into Gemfile:
 <pre>
+<code>
   gem "rack-restful_submit"
+</code>
 </pre>
 
 Run:
 <pre>
+<code>
   bundle install
+</code>
 </pre>
 
 h3. Integration
 
 Insert into config/environment.rb:
 <pre>
+<code>
 config.middleware.insert_after Rack::MethodOverride, Rack::RestfulSubmit
+</code>
 </pre>
 
 h2. Usage
@@ -50,6 +62,7 @@ us to convert normal POST request into RESTful one. Don't forget to also insert 
 
 Example of industries/index.html.erb
 <pre>
+<code>
 <h1>Listing industries</h1>
 
 <form method="post">
@@ -78,11 +91,14 @@ Example of industries/index.html.erb
 <br />
 
 <%= link_to 'New industry', new_industry_path %>
+</code>
 </pre>
 
 Routes:
 <pre>
-
+<code>
+  map.resources :industries, :collection => { :destroy_multiple => :delete }
+</code>
 </pre>
 
 h2. Contribute
