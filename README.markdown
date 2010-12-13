@@ -34,9 +34,14 @@ Run:
 
 ### Integration
 
+We need to swap our RestfulSubmit middleware with MethodOverride which we don't need anymore and also can cause us problems.
+*WARNING:* Maybe I shoudl merge this 2 together instead of disabling one. For some actions you would still need to have MethodOverride.
+
 Insert into config/environment.rb:
 
-    config.middleware.insert_after Rack::MethodOverride, 'Rack::RestfulSubmit'
+
+    config.middleware.swap Rack::MethodOverride, 'Rack::RestfulSubmit'
+
 
 Usage
 -----
