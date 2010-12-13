@@ -34,8 +34,7 @@ Run:
 
 ### Integration
 
-We need to swap our RestfulSubmit middleware with MethodOverride which we don't need anymore and also can cause us problems.
-*WARNING:* Maybe I shoudl merge this 2 together instead of disabling one. For some actions you would still need to have MethodOverride.
+We need to swap our RestfulSubmit middleware with MethodOverride which we don't need anymore.
 
 Insert into config/environment.rb:
 
@@ -89,3 +88,9 @@ Contribute
 ----------
 
 The Github way: Fork Me, Hack, Push, Send Pull Request
+
+History
+-------
+
+1.1.0 - Version with MethodOverride support inside
+1.0.0 - First working version

@@ -1,11 +1,8 @@
-require 'rack'
-
 module Rack
-  class RestfulSubmit
+  class RestfulSubmit < MethodOverride
 
     REWRITE_KEYWORD = '__rewrite'.freeze
     REWRITE_MAP = '__map'.freeze
-    HTTP_METHODS = %w(GET HEAD PUT POST DELETE OPTIONS)
 
     def initialize(app)
       @app = app
@@ -21,7 +18,11 @@ module Rack
 
           if mapping && mapping['url'] && mapping['method']
             rewrite(env, mapping['url'], mapping['method'])
+          else
+            super(env)
           end
+        else
+          super(env)
         end
       end
 

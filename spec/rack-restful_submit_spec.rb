@@ -1,13 +1,14 @@
 lib = File.expand_path('../lib/', __FILE__)
 $:.unshift lib unless $:.include?(lib)
 
+require 'rack'
 require 'rack-restful_submit'
 
 describe Rack::RestfulSubmit do
   let(:in_env) { {} }
   let(:out_env) { subject.call(in_env) }
   let(:app) {lambda {|env| env}}
-  subject { Rack::RestfulSubmit.new(app)}
+  subject { Rack::RestfulSubmit.new(app) }
 
   describe "a get request" do
     it { app.should_receive(:call).with(in_env); out_env }
@@ -64,5 +65,48 @@ describe Rack::RestfulSubmit do
       it { out_env['REQUEST_METHOD'].should == "POST" }
       it { out_env['REQUEST_URI'].should == "http://localhost:3000/" }
     end
+
+    describe "with methodoverride support" do
+      Rack::RestfulSubmit::HTTP_METHODS.each do |method|
+        describe "with #{method} no __rewrite args" do
+          before do
+            in_env["rack.request.form_hash"] = { "_method" => method }
+          end
+
+          it { out_env['REQUEST_METHOD'].should == method }
+        end
+
+        describe "with #{method} and valid __rewrite args" do
+          before do
+            in_env["rack.request.form_hash"] = {
+              "_method" => 'put',
+              "__rewrite" => { method => "value is not important" },
+              "__map" => {
+                method => {
+                  "method" => method,
+                  "url" => "http://localhost:3000/#{method}"
+                }
+              }
+            }
+          end
+
+          it { out_env['REQUEST_METHOD'].should == method }
+        end
+
+        describe "with #{method} and not valid __rewrite args" do
+          before do
+            in_env["rack.request.form_hash"] = {
+              "_method" => method,
+              "__rewrite" => { method => "value is not important" },
+              "__map" => {}
+            }
+          end
+
+          it { out_env['REQUEST_METHOD'].should == method }
+        end
+      end
+    end
+
   end
+
 end
