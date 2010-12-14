@@ -87,10 +87,16 @@ Routes:
 Contribute
 ----------
 
-The Github way: Fork Me, Hack, Push, Send Pull Request
+The Github way: Fork Me, Hack Me, Push Me, Send Me as Pull Request
+
+License
+-------
+
+(c) 2010 Ladislav Martincik - MIT License (see LICENSE)
 
 History
 -------
 
+1.1.1 - Define Gemfile and decrease RSpec version to 1.3.0
 1.1.0 - Version with MethodOverride support inside
 1.0.0 - First working version
