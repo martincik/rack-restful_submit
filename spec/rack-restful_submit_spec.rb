@@ -74,6 +74,7 @@ describe Rack::RestfulSubmit do
           end
 
           it { out_env['REQUEST_METHOD'].should == method }
+          it { app.should_receive(:call).once.with(in_env); out_env }
         end
 
         describe "with #{method} and valid __rewrite args" do
@@ -103,6 +104,7 @@ describe Rack::RestfulSubmit do
           end
 
           it { out_env['REQUEST_METHOD'].should == method }
+          it { app.should_receive(:call).once.with(in_env); out_env }
         end
       end
     end

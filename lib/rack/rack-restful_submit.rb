@@ -19,10 +19,10 @@ module Rack
           if mapping && mapping['url'] && mapping['method']
             rewrite(env, mapping['url'], mapping['method'])
           else
-            super(env)
+            return super(env)
           end
         else
-          super(env)
+          return super(env)
         end
       end
 
