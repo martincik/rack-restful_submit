@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name     = "rack-restful_submit"
-  s.version  = "1.1.2"
+  s.version  = "1.2.0"
   s.platform = Gem::Platform::RUBY
   s.authors  = ["Ladislav Martincik"]
   s.email    = ["ladislav.martincik@gmail.com"]
@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = ">= 1.3.6"
   s.files = `git ls-files`.split("\n")
   s.require_paths = ["lib"]
-  s.add_dependency "rack", "=1.1.0"
-  s.add_development_dependency 'rspec', '=1.3.0'
+  s.add_dependency "rack", "~>1.3.0"
+  s.add_development_dependency 'rspec', '~>2.6.0'
 end
 
