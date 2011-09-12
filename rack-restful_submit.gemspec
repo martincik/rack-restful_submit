@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name     = "rack-restful_submit"
-  s.version  = "1.2.0"
+  s.version  = "1.2.1"
   s.platform = Gem::Platform::RUBY
   s.authors  = ["Ladislav Martincik"]
   s.email    = ["ladislav.martincik@gmail.com"]
