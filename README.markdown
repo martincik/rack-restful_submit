@@ -97,8 +97,9 @@ License
 History
 -------
 
-1.2.0 - Improvements & Optimalizations for Rails 3 (Thanks to J.Provaznik, F.Vollero)
-1.1.2 - Fixing bug with double Rack call()
-1.1.1 - Define Gemfile and decrease RSpec version to 1.3.0
-1.1.0 - Version with MethodOverride support inside
-1.0.0 - First working version
+    1.2.2 - Relaxed GEM dependecies (Thanks to Vit Vondruch)
+    1.2.0 - Improvements & Optimalizations for Rails 3 (Thanks to J.Provaznik, F.Vollero)
+    1.1.2 - Fixing bug with double Rack call()
+    1.1.1 - Define Gemfile and decrease RSpec version to 1.3.0
+    1.1.0 - Version with MethodOverride support inside
+    1.0.0 - First working version
