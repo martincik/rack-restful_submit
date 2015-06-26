@@ -18,8 +18,7 @@ describe Rack::RestfulSubmit do
   describe "a post request" do
     before do
       in_env['REQUEST_METHOD'] = 'POST'
-      in_env['rack.input'] = in_env['form_input'] = ''
-      in_env['rack.request.form_input'] = ''
+      in_env['rack.request.form_input'] = in_env['rack.input'] = in_env['form_input'] = StringIO.new('')
       in_env["rack.request.form_hash"] = {}
     end
 
