@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = ">= 1.3.6"
   s.files = `git ls-files`.split("\n")
   s.require_paths = ["lib"]
-  s.add_dependency "rack", "~>1.3"
+  s.add_dependency "rack", [">= 1.3", "< 3"]
   s.add_development_dependency 'rspec', '~>2.6.0'
 end
 
